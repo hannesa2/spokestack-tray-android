@@ -47,7 +47,7 @@ class TrayConfig private constructor(builder: Builder) {
 
     /**
      * Synthesis mode for TTS. This defaults to `TEXT` and should only be changed if
-     * the messages you return to the Tray in [VoicePrompt]s are in SSML or Speech
+     * the messages you return to the Tray in [Prompt]s are in SSML or Speech
      * Markdown format.
      */
     val ttsMode: Mode = builder.ttsMode

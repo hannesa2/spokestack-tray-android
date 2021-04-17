@@ -1,5 +1,6 @@
 package io.spokestack.tray.message
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -44,7 +45,7 @@ class MessageAdapter(context: Context) :
         return if (currentList[position].isSystem) 0 else 1
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val message = currentList[position]
 
         val layout = (holder as BubbleViewHolder).msgLayout
