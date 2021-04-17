@@ -7,6 +7,12 @@ buildscript {
         kotlin_version = "1.4.32"
         // remove a leading "v" if it exists
         spokestack_version = versions.getProperty("spokestack_version").stripMargin("v")
+        dokka_version = "1.4.10"
+        jfrog_plugin_version = "1.8.5"
+        bintray_plugin_version = "8.5.0"
+        release_plugin_version = "15.3.0"
+        publishing_plugin_version = "17.1.0"
+        tensorflow_version="2.4.0"
     }
     repositories {
         mavenCentral()
