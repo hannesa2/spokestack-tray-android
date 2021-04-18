@@ -3,7 +3,11 @@ package io.spokestack.tray.example
 import android.os.Bundle
 import io.spokestack.spokestack.nlu.NLUResult
 import io.spokestack.spokestack.util.EventTracer
-import io.spokestack.tray.*
+import io.spokestack.tray.Prompt
+import io.spokestack.tray.SpokestackTrayListener
+import io.spokestack.tray.TrayActivity
+import io.spokestack.tray.TrayConfig
+import timber.log.Timber
 
 class MainActivity : TrayActivity(), SpokestackTrayListener {
     private val greeting = "Welcome! This example uses Minecraft sample models. " +
@@ -37,35 +41,28 @@ class MainActivity : TrayActivity(), SpokestackTrayListener {
         setContentView(R.layout.activity_main)
     }
 
-    override fun onLog(message: String) {
-        println("LOG: $message")
-    }
-
     override fun onClassification(result: NLUResult): Prompt {
+        Timber.d(result.toString())
         val (text, followup) = when (result.intent) {
             "AMAZON.RepeatIntent" -> Pair(lastResponse, true)
             "AMAZON.YesIntent" -> Pair("I heard you say yes! What would you like to make?", true)
             "AMAZON.NoIntent" -> Pair("I heard you say no. Goodbye.", false)
             "AMAZON.StopIntent", "AMAZON.CancelIntent", "AMAZON.FallbackIntent" ->
                 Pair("Goodbye!", false)
-            "RecipeIntent" -> Pair("If I were a real app, I would show a screen now on how " +
-                    "to make a ${result.slots["Item"]?.value}. Want to continue?", true)
+            "RecipeIntent" -> Pair(
+                "If I were a real app, I would show a screen now on how " +
+                        "to make a ${result.slots["Item"]?.value}. Want to continue?", true
+            )
 
             else -> Pair(lastResponse, true)
         }
         return Prompt(text, expectFollowup = followup)
     }
 
-    override fun onError(error: Throwable) {
-        error.printStackTrace()
-        println("ERROR: ${error.localizedMessage}")
-    }
+    override fun onError(error: Throwable) = Timber.d("ERROR")
 
-    override fun onOpen() {
-        println("OPENED")
-    }
+    override fun onOpen() = Timber.d("OPENED")
 
-    override fun onClose() {
-        println("CLOSED")
-    }
+    override fun onClose() = Timber.d("CLOSED")
+
 }
