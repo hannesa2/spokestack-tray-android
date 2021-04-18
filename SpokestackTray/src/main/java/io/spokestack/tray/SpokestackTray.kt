@@ -6,7 +6,6 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +29,7 @@ import io.spokestack.spokestack.util.EventTracer
 import io.spokestack.tray.databinding.TrayFragmentBinding
 import io.spokestack.tray.message.Message
 import io.spokestack.tray.message.MessageAdapter
+import timber.log.Timber
 
 /**
  * A Fragment that exposes the primary functionality of the Spokestack tray.
@@ -96,7 +96,6 @@ class SpokestackTray constructor(
     MotionLayout.TransitionListener,
     AutoCloseable {
 
-    private val logTag = javaClass.simpleName
     private val audioPermission = 1337
 
     private lateinit var spokestack: Spokestack
@@ -269,7 +268,7 @@ class SpokestackTray constructor(
      */
     fun setOpen(open: Boolean, listen: Boolean = open) {
         if (open && !checkMicPermission()) {
-            Log.w(logTag, "Microphone permission must be granted for Spokestack to operate")
+            Timber.w("Microphone permission must be granted for Spokestack to operate")
             this.openOnPermissions = true
             requestPermissions(arrayOf(Manifest.permission.RECORD_AUDIO), audioPermission)
             return
