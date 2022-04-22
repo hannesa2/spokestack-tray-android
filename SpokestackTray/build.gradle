@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    api "com.github.AppDevNext.Logcat:LogcatCore:2.5.0"
+    api "com.github.AppDevNext.Logcat:LogcatCore:2.10"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
