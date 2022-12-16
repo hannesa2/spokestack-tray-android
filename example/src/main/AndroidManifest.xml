@@ -9,7 +9,8 @@
         android:supportsRtl="true"
         android:name="info.hannes.logcat.LoggingApplication"
         android:theme="@style/AppTheme">
-        <activity android:name="io.spokestack.tray.example.MainActivity">
+        <activity android:name="io.spokestack.tray.example.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
