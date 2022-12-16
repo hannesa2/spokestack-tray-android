@@ -54,7 +54,7 @@ dependencies {
     // Spokestack dependencies
     api 'io.spokestack:spokestack-android:11.5.2'
     implementation 'org.tensorflow:tensorflow-lite:2.11.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     // TTS
