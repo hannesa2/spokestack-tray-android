@@ -1,5 +1,14 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.gladed.androidgitversion' version '0.4.14'
+}
+
+androidGitVersion {
+    format '%tag%%.count%%<commit>%%%...dirty%'
+    hideBranches = [ 'main' ]
+    tagPattern(/^v([0-9]+\.){2}[0-9]+.*/)
+}
 
 android {
     compileSdkVersion 30
@@ -8,8 +17,8 @@ android {
         applicationId "io.spokestack.tray.example"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode androidGitVersion.code()
+        versionName androidGitVersion.name()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
