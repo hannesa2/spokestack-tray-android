@@ -10,7 +10,6 @@ android {
         minSdkVersion 24
         targetSdkVersion 31
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -53,11 +52,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.5.1'
     implementation "androidx.media:media:1.6.0"
     implementation "com.google.android.exoplayer:exoplayer-core:2.14.0"
-
-    // test dependencies
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
 
 // deployment
