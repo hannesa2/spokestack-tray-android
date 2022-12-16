@@ -11,12 +11,12 @@ androidGitVersion {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "io.spokestack.tray.example"
         minSdkVersion 24
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode androidGitVersion.code()
         versionName androidGitVersion.name()
     }
