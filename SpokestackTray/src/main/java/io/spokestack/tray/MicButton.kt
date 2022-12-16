@@ -123,8 +123,8 @@ class MicButton(context: Context, attributes: AttributeSet) :
     inner class GestureHandler : GestureDetector.SimpleOnGestureListener() {
 
         override fun onFling(
-            e1: MotionEvent?,
-            e2: MotionEvent?,
+            e1: MotionEvent,
+            e2: MotionEvent,
             velocityX: Float,
             velocityY: Float
         ): Boolean {
