@@ -5,17 +5,17 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="7dp">
 
-  <TextView
-      style="@style/SpokestackMessage"
-      android:id="@+id/messageContent"
-      android:layout_marginEnd="50dp"
-      android:layout_marginStart="7dp"
-      tools:text="@tools:sample/full_names" />
+    <TextView
+        android:id="@+id/messageContent"
+        style="@style/SpokestackMessage"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="50dp"
+        tools:text="@tools:sample/full_names" />
 
-  <Space
-      android:id="@+id/spacer"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_weight="1" />
+    <Space
+        android:id="@+id/spacer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 
 </LinearLayout>
